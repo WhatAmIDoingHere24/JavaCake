@@ -1,97 +1,60 @@
-import javax.net.*;
-import java.util.*;
-import javax.security.*;
-import java.io.*;
-import javax.crypto.*;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-/**JavaCake Docs
- * 
- * Java cake is a P2P messaging service made in java, the idea comes form Onion Tor (try and guess where i got the name)
- * 
- * Users are able to establish secure servers in which each user must provide a valid javaCake key to join
- * Users who establish servers must provide there public key pair to be cross refrenced on the website
- * all files shared must have a valid MD5 Hash to check
- * Users can set the amount of connections and who can/cannot connect
- * 
- */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.*;
+import javax.crypto.*;
+import javax.security.*;
 
 public class JavaCake {
+
     public static void main(String[] args) {
-        USER()
-        {
-        JFrame USER = new JFrame();
-        JButton view_open_serv = new JButton(" VIEW ALL SERVERS ");
-        JButton join_serv = new JButton(" JOIN SERVER ");
-        JTextField username = new JTextField(" USERNAME ");
-        JTextField key = new JTextField(" PUBLIC KEY ");
+        // Create a new JFrame (window)
+        JFrame frame = new JFrame("JavaCake");
+        
+        // Create a JPanel to hold components
+        JPanel panel = new JPanel();
+        
+        // Create a JButton
+        JButton view_serv = new JButton("view servers");
+        JButton Create_serv = new JButton("create server");
+        JTextField join_serv = new JTextField("enter server to join name");
+        
+        // Add an ActionListener to the button
+        view_serv.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Show a message dialog when the button is clicked
+                JOptionPane.showMessageDialog(frame, "Hello, Swing!");
+            }
+        });
+        Create_serv.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Show a message dialog when the button is clicked
+                JOptionPane.showMessageDialog(frame, "Hello, Swing!");
+            }
+        });
 
-        USER.setSize(500,600);
-        USER.setLayout(null);
-        USER.setVisible(True);
+        // Add the button to the panel
+        panel.add(view_serv);
+        panel.add(Create_serv);
         
-        view_open_serv.setBounds(150,200,220,50);
-        join_serv.setBounds(150,200,220,50);
-        username.setBounds(150,200,220,50);
-        key.setBounds(150,200,220,50);
+        // Add the panel to the frame
+        frame.add(panel);
         
-        USER.add(view_open_serv);
-        USER.add(join_serv);
-        USER.add(username);
-        USER.add(key);
+        // Set the default close operation
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Set the size of the frame
+        frame.setSize(300, 200);
+        
+        // Set the frame to be visible
+        frame.setVisible(true);
     }
-
-    SERVER(){
-        JFrame SERVER = new JFrame();
-        JButton  create_server = new JButton(" CREATE SERVER ");
-        JButton stop_server = new JButton(" STOP SERVER ");
-        JTextField server_name = new JTextField(" SERVER NAME ");
-        JTextField server_key = new JTextField(" PUBLIC KEY ");
-        JButton server_settings = new JButton(" SERVER SETTINGS ");
-
-        USER.setSize(500,600);
-        USER.setLayout(null);
-        USER.setVisible(True);
-        
-        view_open_serv.setBounds(150,200,220,50);
-        join_serv.setBounds(150,200,220,50);
-        username.setBounds(150,200,220,50);
-        key.setBounds(150,200,220,50);
-        
-        USER.add(view_open_serv);
-        USER.add(join_serv);
-        USER.add(username);
-        USER.add(key);
-    }
-
-    SERVER_SETTINGS(){
-        JFrame SERVER_SETTINGS = new JFrame();
-        /*SERVER SETTINGS
-         * server join limit
-         * ip white list
-         * ip black list
-         * public or private server
-         * logging level 0-3 (0 = no logging,1 = log usernames/join/exit times,2 = log 1+only txt message,3 = log everything)
-         * allow attachments (ex.files,)
-         * 
-         * 
-         * PRIVATE SERVER OPTIONS
-         *  password
-         *  forget server on leave
-         *  only allow specific IP's to join
-         */
-
-        USER.setSize(500,600);
-        USER.setLayout(null);
-        USER.setVisible(True);
-        
-        view_open_serv.setBounds(150,200,220,50);
-        join_serv.setBounds(150,200,220,50);
-        username.setBounds(150,200,220,50);
-        key.setBounds(150,200,220,50);
-        
-        USER.add(view_open_serv);
-        USER.add(join_serv);
-        USER.add(username);
-        USER.add(key);
-    }
+}
