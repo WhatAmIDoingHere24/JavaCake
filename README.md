@@ -15,3 +15,4 @@ Production Path:
 7/29/2024: Project Started
 8/2/2024: planned out production path
 8/7/2024: built out the graphics, need to build scrollabel array updating like server list or profile list
+8/8/24: graphics are near completed only need to build out one more scrren than organise panes, tmrw will try and build out server view window :<
